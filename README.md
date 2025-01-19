@@ -1,62 +1,42 @@
 # plugdb
-Lightweight NoSQL database system, the updated version of my previous coredb.
+Lightweight NoSQL database system, especially made for [HighSeas](https://highseas.hackclub.com/) and [MinusTwelve](https://minustwelve.hackclub.com/).
 
 ## Documentation
 Install it from npm:
 ``` npm i @samannoyb/plug-db --save ```
-
-### Adding new database setup:
+### Add the plugdb library:
 ```
 var plugdb = require('@samannoyb/plug-db');
-
-plugdb.setup({ path: 'D:/'});
+```
+### Adding new database setup:
+```
+plugdb.setup({ path: 'D:/'}); // path to database goes here
 ```
 
 ### Making a new Cluster (root directory):
 ```
-var plugdb = require('@samannoyb/plug-db');
+plugdb.initializeCluster('kaka');  // cluster name (your document will be named after this, for ex: kaka.json)
 
-plugdb.setup({ path: 'D:/'});
-plugdb.initializeCluster('kaka');
 ```
 
 ### Creating Documents (Data files):
 ```
-var plugdb = require('@samannoyb/plug-db');
-
-plugdb.setup({ path: 'D:/'});
-plugdb.initializeCluster('kaka');
-plugdb.createNewDocument('kaka', 'users');
+plugdb.createNewDocument('kaka', 'users'); // the parameters are this (clusterName, documentName) -> document will be one {key, value} pair in the json file
 ```
 
 ### Adding data:
 ```
-var plugdb = require('@samannoyb/plug-db');
-
-plugdb.setup({ path: 'D:/'});
-plugdb.initializeCluster('kaka');
-plugdb.createNewDocument('kaka', 'users');
-plugdb.addData('kaka', 'users', { id: 'foo', username: 'foobar'});
+plugdb.addData('kaka', 'users', { id: 'foo', username: 'foobar'}); // adding data -> you may also add in normal way, instead of key-value, but if you don't use key-value pair, you can't easily search it up :( the parameters are (clusterName, documentName, {key, value})
 ```
 
 ### Modifying Data:
 ```
-var plugdb = require('@samannoyb/plug-db');
-
-plugdb.setup({ path: 'D:/'});
-plugdb.initializeCluster('kaka');
-plugdb.createNewDocument('kaka', 'users');
-plugdb.modifyDocument('kaka', 'users', 'username', 'foobar', 'bar')
+plugdb.modifyDocument('kaka', 'users', 'username', 'foobar', 'bar') // modifying a specific parameter -> parameters are (clusterName, documentName, parameterName, originalValue, newValue)
 ```
 
 ### Lookup:
 ```
-var plugdb = require('@samannoyb/plug-db');
-
-plugdb.setup({ path: 'D:/'});
-plugdb.initializeCluster('kaka');
-plugdb.createNewDocument('kaka', 'users');
-plugdb.documentLookup('kaka', 'users', 'username', 'bar')
+plugdb.documentLookup('kaka', 'users', 'username', 'bar') // search all username categories with "bar" -> parameters are (clusterName, documentName, parameterName, searchKeyword)
 ```
 
 ### What else?
