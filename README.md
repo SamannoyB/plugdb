@@ -10,7 +10,7 @@ var plugdb = require('@samannoyb/plug-db');
 ```
 ### Adding new database setup:
 ```
-plugdb.setup({ path: 'D:/'}); // path to database goes here
+plugdb.setup({ path: 'D:/'}); // path to database goes here (if you're a linux user like me, dont add a '/' because it will not have perms (you can give it tho). try adding accessible file paths :) )
 ```
 
 ### Making a new Cluster (root directory):
