@@ -19,7 +19,7 @@ var db = {
             console.log(pathToBuild)   
         }
     },
-    initializeCluster: (names) => {                           // root
+    initializeCluster: (names) => {                       
         console.log(names)
         if (pathToBuild == "") {
             console.log("ERR -- Setup not initialized. Run setup() with your specified path inside.");
